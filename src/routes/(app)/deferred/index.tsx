@@ -15,7 +15,7 @@ const slowServerFn = createServerFn({ method: 'GET' })
     return { name, randomNumber: Math.floor(Math.random() * 100) }
   })
 
-export const Route = createFileRoute('/deferred')({
+export const Route = createFileRoute('/(app)/deferred/')({
   loader: async () => {
     return {
       deferredStuff: new Promise<string>((r) =>
@@ -25,10 +25,10 @@ export const Route = createFileRoute('/deferred')({
       person: await personServerFn({ data: 'John Doe' }),
     }
   },
-  component: Deferred,
+  component: Index,
 })
 
-function Deferred() {
+function Index() {
   const [count, setCount] = useState(0)
   const { deferredStuff, deferredPerson, person } = Route.useLoaderData()
 

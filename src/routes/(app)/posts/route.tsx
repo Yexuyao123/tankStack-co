@@ -1,7 +1,7 @@
 import { Link, Outlet, createFileRoute } from '@tanstack/react-router'
-import { fetchPosts } from '../utils/posts'
+import { fetchPosts } from '~/utils/posts'
 
-export const Route = createFileRoute('/posts')({
+export const Route = createFileRoute('/(app)/posts')({
   loader: async () => fetchPosts(),
   component: PostsLayoutComponent,
 })

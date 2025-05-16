@@ -4,7 +4,7 @@ import { DEPLOY_URL } from '~/utils/users'
 import { NotFound } from '~/components/NotFound'
 import { UserErrorComponent } from '~/components/UserError'
 
-export const Route = createFileRoute('/users/$userId')({
+export const Route = createFileRoute('/(app)/users/$userId')({
   loader: async ({ params: { userId } }) => {
     try {
       const res = await fetch(DEPLOY_URL + '/api/users/' + userId)
